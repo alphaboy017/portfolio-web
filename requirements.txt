@@ -1,2 +1,4 @@
 streamlit
-Pillow 
+Pillow
+streamlit-lottie
+requests 
