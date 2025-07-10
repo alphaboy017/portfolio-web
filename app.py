@@ -174,15 +174,30 @@ if section == "Achievements & Certifications":
 # --- Contact ---
 if section == "Contact":
     st.header("Contact Me")
-    with st.form("contact_form"):
-        name = st.text_input("Your Name")
-        email = st.text_input("Your Email")
-        message = st.text_area("Message")
-        submitted = st.form_submit_button("Send")
-        if submitted:
-            st.success("Thank you for your message! (This is a demo form.)")
-    st.write("")
-    st.markdown("""
-    <a href='https://github.com/alphaboy017' target='_blank'><img src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' width='32' style='margin-right:10px;'/></a>
-    <a href='https://www.linkedin.com/in/patelvatsal17/' target='_blank'><img src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg' width='32'/></a>
-    """, unsafe_allow_html=True) 
+    col1, col2 = st.columns([1,2])
+    with col1:
+        try:
+            image = Image.open("1731733571514.jpeg")
+            st.image(image, width=120, caption="Patel Vatsal", output_format="auto")
+        except:
+            st_lottie(lottie_json, height=120)
+        st.markdown("""
+        <div style='margin-top: 10px;'>
+            <a href='https://github.com/alphaboy017' target='_blank'><img src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' width='32' style='margin-right:10px;'/></a>
+            <a href='https://www.linkedin.com/in/patelvatsal17/' target='_blank'><img src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg' width='32'/></a>
+        </div>
+        <div style='margin-top: 10px; font-size: 1.1rem;'>
+            <b>Email:</b> <a href='mailto:[REDACTED]'>[REDACTED]</a><br>
+            <b>Location:</b> Surat, Gujarat, India
+        </div>
+        """, unsafe_allow_html=True)
+    with col2:
+        st.markdown("<h4>Send me a message</h4>", unsafe_allow_html=True)
+        with st.form("contact_form"):
+            name = st.text_input("Your Name")
+            email = st.text_input("Your Email")
+            message = st.text_area("Message")
+            submitted = st.form_submit_button("Send")
+            if submitted:
+                st.success("Thank you for your message! (This is a demo form.)")
+                st_lottie(lottie_json, height=100) 
